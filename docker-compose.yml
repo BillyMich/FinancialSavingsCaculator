@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  angular-app:
+    build: ./FinancialSavingsCalculator.Web
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./FinancialSavingsCalculator.Web:/usr/src/app
+    command: npm start
+    depends_on:
+      - backend-api
+
+  backend-api:
+    build:
+      context: ./FinancialSavingsCalculator.Api
+      dockerfile: FinancialSavingsCalculator.Api/Dockerfile
+    ports:
+      - "5000:80"
+    volumes:
+      - ./FinancialSavingsCalculator.Api:/app
+    command: ["dotnet", "FinancialSavingsCalculator.Api.dll"]

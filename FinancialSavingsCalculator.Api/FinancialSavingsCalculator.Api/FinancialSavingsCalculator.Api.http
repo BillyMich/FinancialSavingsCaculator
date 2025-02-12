@@ -1,0 +1,6 @@
+@FinancialSavingsCalculator.Api_HostAddress = http://localhost:5195
+
+GET {{FinancialSavingsCalculator.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
